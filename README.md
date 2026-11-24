@@ -27,12 +27,13 @@ illustration, four story cards with vector glyphs, a bonus-news ticker.
 ## Run
 
 ```sh
-python3 main.py                 # writes /output/entry.png
-MAKEFUN_OUTPUT_DIR=output python3 main.py   # writes ./output/entry.png
+mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-Python 3.13, stdlib + Pillow only. Fully deterministic: no network, no RNG,
-no clock — identical bytes on every run.
+The image is drawn by a separate generator and shipped verbatim by
+`main.ts`, validated against the gate limits (PNG only, 1 MiB,
+1024x1024). Node 22, standard library only; no network, no clock,
+no RNG — identical bytes on every run.
 
 ## Files
 
